@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faura | Flavour and Aura · Authentic Pan-Indian &amp; Continental Dining</title>
+  <meta name="description" content="Faura stands for Flavour and Aura. Discover authentic Pan-Indian royal culinary heritage and gourmet Continental delicacies. Customize feast bowls, reserve VIP tables, and enjoy swift dining.">
+  
+  <!-- Typography from Template: Jost -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/static/assets/faura-icon.svg">
+</head>
+<body>
+
+  <!-- =========================================================================
+       HIGHLIGHTABLE AMBIENT BACKGROUND BEHIND MAIN CONTAINER
+       ========================================================================= -->
+  <div class="main-backdrop-highlight" id="mainBackdropHighlight" aria-hidden="true">
+    <div class="ambient-aura-spotlight" id="ambientAuraSpotlight"></div>
+    <div class="ambient-mandala-tile"></div>
+  </div>
+
+  <!-- Interactive Floating Background Aura Switcher Widget -->
+  <aside class="aura-highlight-toolbar" id="auraHighlightToolbar" role="region" aria-label="Background Aura Controls">
+    <div class="aura-toolbar-header">
+      <span class="sparkle-icon">✨</span>
+      <span class="aura-toolbar-title">Aura Highlight</span>
+    </div>
+    <div class="aura-pill-group">
+      <button type="button" class="aura-btn active" data-aura="saffron" title="Royal Saffron Flame">
+        <span class="aura-swatch swatch-saffron"></span> Saffron
+      </button>
+      <button type="button" class="aura-btn" data-aura="gold" title="Imperial Zari Gold">
+        <span class="aura-swatch swatch-gold"></span> Zari Gold
+      </button>
+      <button type="button" class="aura-btn" data-aura="terracotta" title="Earthy Terracotta">
+        <span class="aura-swatch swatch-terracotta"></span> Terracotta
+      </button>
+      <button type="button" class="aura-btn" data-aura="emerald" title="Royal Emerald Garden">
+        <span class="aura-swatch swatch-emerald"></span> Emerald
+      </button>
+      <button type="button" class="aura-btn" data-aura="pulse" title="Radiant Breathing Pulse">
+        <span class="aura-swatch swatch-pulse"></span> Pulse Glow
+      </button>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       MASTER FLOATING WHITE CARD (Exact Sushi Bistro Template Layout)
+       ========================================================================= -->
+  <div class="bistro-card-container">
+
+    <!-- 1. NAVIGATION HEADER -->
+    <header class="bistro-header">
+      <a href="/" class="bistro-logo-link" id="brandHomeLink" title="Faura - Flavour and Aura">
+        <img src="/static/assets/faura-logo.svg" alt="Faura - Flavour and Aura" class="bistro-logo-img">
+      </a>
+
+      <!-- Center Links: HOME | MENU | CONTINENTAL | BOURNET | GOURMET | BOOK A TABLE | BUILD A FEAST -->
+      <nav class="bistro-nav-menu">
+        <a href="#home" class="bistro-nav-link active" id="navHomeBtn">Home</a>
+        <span class="bistro-nav-divider">|</span>
+        <a href="#menu" class="bistro-nav-link" id="navMenuBtn">Indian Menu</a>
+        <span class="bistro-nav-divider">|</span>
+        <a href="#continentalSection" class="bistro-nav-link" id="navContinentalBtn">Continental</a>
+        <span class="bistro-nav-divider">|</span>
+        <a href="#bournetSection" class="bistro-nav-link" id="navBournetBtn">Bournet Privé</a>
+        <span class="bistro-nav-divider">|</span>
+        <a href="#premium" class="bistro-nav-link">Gourmet</a>
+        <span class="bistro-nav-divider">|</span>
+        <a href="#reservation" class="bistro-nav-link" id="navReservationBtn" data-open-reservation="true" style="color: var(--bistro-orange); font-weight: 700;">★ Book a Table</a>
+        <span class="bistro-nav-divider">|</span>
+        <a href="#build-your-own" class="bistro-nav-link">Build a feast</a>
+      </nav>
+
+      <!-- Right: YOUR ACCOUNT + Cart -->
+      <div class="bistro-header-right">
+        <button class="account-link" id="accountOpenBtn" type="button">
+          <span id="accountButtonLabel">Sign in</span>
+          <div class="account-avatar">👤</div>
+        </button>
+        <button class="cart-icon-btn anim-bounce-click" id="headerCartBtn">
+          <span>🛒</span>
+          <span id="headerCartCount">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 2. ALLERGEN SHIELD BAR (Integrated Clean Banner) -->
+    <div class="bistro-shield-strip" id="allergenShieldBar">
+      <div class="shield-strip-label">
+        <span>🛡️ Allergen Shield:</span>
+        <span id="shieldStatusIndicator" style="font-weight: 500; text-transform: none; color: var(--bistro-dark);">All items safe</span>
+      </div>
+      <div class="allergen-pills" id="allergenPills">
+        <!-- Dynamically rendered via allergenShield.js -->
+      </div>
+      <button class="shield-reset-btn" id="clearShieldBtn" style="display: none;">Reset Shield</button>
+    </div>
+
+    <!-- 3. HERO SHOWCASE STAGE (Three Columns Matching Template) -->
+    <main class="showcase-stage" id="showcaseStage">
+      <!-- Left & Right Slider Arrow Controls -->
+      <button class="slider-arrow-btn slider-arrow-left" id="prevSlideBtn" aria-label="Previous Dish">‹</button>
+      <button class="slider-arrow-btn slider-arrow-right" id="nextSlideBtn" aria-label="Next Dish">›</button>
+
+      <!-- Left Column: Dish Details & Add-ons -->
+      <div class="col-dish-details">
+        <div class="breadcrumb-label" id="dishBreadcrumb">MENU &gt; MENU SECTION</div>
+        <div class="dish-badge-orange" id="dishBadge">Salmon</div>
+        <h1 class="dish-heading" id="dishHeading">Poke Bowl</h1>
+        <p class="dish-subdescription" id="dishSubdesc">
+          Fresh Atlantic salmon, seasoned sushi rice, Hass avocado, crisp cucumbers, pickled carrots, and toasted sesame drizzled with house poke sauce.
+        </p>
+
+        <!-- Custom Addon Selection with Circles -->
+        <div class="dish-addons-group" id="dishAddonsGroup">
+          <label class="addon-checkbox-label">
+            <span class="addon-title" id="addon1Title">EXTRA SALMON ₹1,245</span>
+            <input type="checkbox" class="addon-checkbox" id="addon1Checkbox" data-name="Extra Atlantic Salmon" data-price="15.00" data-cals="180">
+            <span class="addon-custom-circle"></span>
+          </label>
+          <label class="addon-checkbox-label">
+            <span class="addon-title" id="addon2Title">EXTRA RICE ₹415</span>
+            <input type="checkbox" class="addon-checkbox" id="addon2Checkbox" data-name="Extra Seasoned Sushi Rice" data-price="5.00" data-cals="160">
+            <span class="addon-custom-circle"></span>
+          </label>
+          <label class="addon-checkbox-label">
+            <span class="addon-title" id="addon3Title">SODA ₹249</span>
+            <input type="checkbox" class="addon-checkbox" id="addon3Checkbox" data-name="Japanese Soda" data-price="3.00" data-cals="120">
+            <span class="addon-custom-circle"></span>
+          </label>
+        </div>
+
+        <button class="btn-order-now anim-bounce-click" id="btnOrderNow">
+          ORDER NOW
+        </button>
+      </div>
+
+      <!-- Center Column: Illustrated Centerpiece & Pagination Dots -->
+      <div class="col-dish-visual">
+        <div class="dish-center-visual anim-float">
+          <img src="/static/assets/poke_bowl_transparent.png" alt="Salmon Poke Bowl" class="showcase-dish-img" id="showcaseDishImg">
+        </div>
+        <!-- Pagination is generated from the featured dish list. -->
+        <div class="slider-dots" id="sliderDots">
+        </div>
+      </div>
+
+      <!-- Right Column: Nutritional Facts -->
+      <div class="col-dish-nutrition">
+        <div class="nutrition-heading">NUTRITIONAL FACTS</div>
+        <div class="nutrition-subheading" id="nutritionCountry">COUNTRY: INDIA • THIS PLATE HAS</div>
+
+        <!-- 4 Badges (Fat, Sodium, Protein, Carbs) -->
+        <div class="nutrition-badges-grid">
+          <div class="nutrition-pill">
+            <div class="pill-top-arch">FAT</div>
+            <div class="pill-bottom-val" id="valFat">14 G</div>
+          </div>
+          <div class="nutrition-pill">
+            <div class="pill-top-arch">SODIUM</div>
+            <div class="pill-bottom-val" id="valSodium">520 MG</div>
+          </div>
+          <div class="nutrition-pill">
+            <div class="pill-top-arch">PROTEIN</div>
+            <div class="pill-bottom-val" id="valProtein">36 G</div>
+          </div>
+          <div class="nutrition-pill">
+            <div class="pill-top-arch">CARBS</div>
+            <div class="pill-bottom-val" id="valCarbs">58 G</div>
+          </div>
+        </div>
+
+        <div class="daily-nutrients-label">% DAILY NUTRIENTS</div>
+        <button class="btn-more-nutrition anim-bounce-click" id="btnMoreNutrition">MORE</button>
+        <p class="nutrition-description-text" id="nutritionDesc">
+          Marinated sashimi salmon, organic avocado, crisp Persian cucumbers, pickled sweet carrots, edamame beans, and roasted sesame seeds over warm brown rice.
+        </p>
+      </div>
+    </main>
+
+    <!-- 4. FULL BISTRO CATALOG & SEARCH (Accessible via 'Menu' button) -->
+    <section class="catalog-section" id="catalogSection">
+      <div class="catalog-header">
+        <h2 class="catalog-title">Menu &amp; Restaurants</h2>
+        <div style="display: flex; gap: 0.75rem; align-items: center;">
+          <input type="text" id="searchInput" placeholder="Search dishes or ingredients..." style="padding: 0.5rem 1rem; border-radius: var(--radius-pill); border: 1px solid var(--bistro-gray-border); font-family: inherit; font-size: 0.85rem; width: 260px;">
+        </div>
+      </div>
+      <nav class="dietary-tabs" id="dietaryTabs" aria-label="Dietary filters">
+        <button type="button" class="dietary-tab active" data-dietary="all"><span aria-hidden="true">🍽️</span> All dishes</button>
+        <button type="button" class="dietary-tab" data-dietary="veg"><span aria-hidden="true">🥦</span> Veg</button>
+        <button type="button" class="dietary-tab" data-dietary="non-veg"><span aria-hidden="true">🍗</span> Non-veg</button>
+        <button type="button" class="dietary-tab" data-dietary="egg"><span aria-hidden="true">🥚</span> Eggetarian</button>
+        <button type="button" class="dietary-tab" data-dietary="vegan"><span aria-hidden="true">🌱</span> Vegan</button>
+      </nav>
+      <div class="restaurant-grid" id="restaurantGrid" aria-label="Restaurants"></div>
+      <div class="dish-grid" id="dishGrid">
+        <!-- Rendered dynamically with spring physics and skeleton loaders -->
+      </div>
+    </section>
+
+    <section class="premium-section" id="premium">
+      <div class="premium-heading">
+        <span class="premium-eyebrow">CHEF'S TABLE · LIMITED MENU</span>
+        <h2>Gourmet Selection</h2>
+        <p>Rare ingredients, careful technique, and a little more time at the pass.</p>
+      </div>
+      <div class="dish-grid premium-grid" id="premiumDishGrid" aria-live="polite"></div>
+    </section>
+
+    <!-- =========================================================================
+         FEATURE 3: EXPANDED BOURNET (GOURMET) SECTION
+         ========================================================================= -->
+    <section class="bournet-section" id="bournetSection">
+      <div class="bournet-header">
+        <span class="bournet-eyebrow">👑 BOURNET PRIVÉ · HAUTE CUISINE</span>
+        <h2 class="bournet-main-title">Bournet Gourmet Collection</h2>
+        <p class="bournet-subtitle">Six chef-crafted culinary masterworks featuring rare delicacies, precision binchotan charcoal grilling, and 24k edible gold accents.</p>
+      </div>
+      <div class="bournet-grid" id="bournetGrid" aria-label="Bournet Gourmet Dishes">
+        <!-- Rendered dynamically by bournetMenu.js -->
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         FEATURE 4: CONTINENTAL FOOD MENU SECTION
+         ========================================================================= -->
+    <section class="continental-section" id="continentalSection">
+      <div class="continental-header">
+        <span class="continental-eyebrow">🥐 BISTRO EUROPE · CONTINENTAL SELECTION</span>
+        <h2 class="continental-main-title">Continental &amp; European Delicacies</h2>
+        <p class="continental-subtitle">Handcrafted artisanal pastas, herb-crusted steaks, oven-baked gratins, and Mediterranean seafood crafted with classic French &amp; Italian culinary traditions.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="continental-tabs" id="continentalTabs" role="tablist" aria-label="Continental food categories">
+        <button type="button" class="continental-tab active" data-category="all"><span>🍽️</span> All Continental</button>
+        <button type="button" class="continental-tab" data-category="pasta"><span>🍝</span> Pastas</button>
+        <button type="button" class="continental-tab" data-category="steak"><span>🥩</span> Steaks &amp; Grills</button>
+        <button type="button" class="continental-tab" data-category="bake"><span>🥘</span> Bakes &amp; Risotto</button>
+        <button type="button" class="continental-tab" data-category="seafood"><span>🐟</span> Seafood</button>
+      </div>
+
+      <div class="continental-grid" id="continentalGrid" aria-label="Continental Food Dishes">
+        <!-- 1. Truffle & Porcini Wild Mushroom Fettuccine -->
+        <article class="dish-card continental-dish-card" id="card-cont-pasta-01" data-dish-id="cont-pasta-01">
+          <div class="dish-card-image-wrap">
+            <img src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Truffle &amp; Porcini Wild Mushroom Fettuccine" class="dish-card-img" loading="lazy">
+            <div class="continental-badge-overlay">
+              <span class="dietary-badge-veg"><span aria-hidden="true">🥦</span> Vegetarian</span>
+            </div>
+            <span class="continental-cuisine-tag">Tuscany, Italy</span>
+          </div>
+          <div class="dish-card-content">
+            <div class="bournet-tags-row">
+              <span class="bournet-tag">Artisanal Pasta</span>
+              <span class="bournet-tag">Umbrian Truffle</span>
+              <span class="bournet-tag">Italian Classic</span>
+            </div>
+            <h3 class="dish-card-title">Truffle &amp; Porcini Wild Mushroom Fettuccine</h3>
+            <p class="dish-card-description">Hand-rolled ribbons of fresh fettuccine tossed in aromatic Umbrian black truffle butter, pan-roasted porcini mushrooms, baby thyme, and 24-month aged Parmigiano-Reggiano.</p>
+            <div class="dish-meta-row">
+              <span class="dish-meta-pill">🔥 620 kcal</span>
+              <span class="dish-meta-pill">⚡ 22g protein</span>
+              <span class="dish-meta-pill">⏱️ 16m</span>
+            </div>
+            <div class="dish-card-footer">
+              <div class="dish-price-block">
+                <span class="dish-price-currency">₹</span>
+                <span class="dish-price-value">890.00</span>
+              </div>
+              <button type="button" class="btn-order-now btn-add-continental anim-bounce-click" data-dish-id="cont-pasta-01">
+                <span>+ Add to Order</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Pan-Seared Norwegian Herb Salmon -->
+        <article class="dish-card continental-dish-card" id="card-cont-salmon-02" data-dish-id="cont-salmon-02">
+          <div class="dish-card-image-wrap">
+            <img src="https://images.pexels.com/photos/3655916/pexels-photo-3655916.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Pan-Seared Norwegian Herb Salmon" class="dish-card-img" loading="lazy">
+            <div class="continental-badge-overlay">
+              <span class="dietary-badge-nonveg"><span aria-hidden="true">🍗</span> Non-Veg</span>
+            </div>
+            <span class="continental-cuisine-tag">Nordic Fjord</span>
+          </div>
+          <div class="dish-card-content">
+            <div class="bournet-tags-row">
+              <span class="bournet-tag">Atlantic Catch</span>
+              <span class="bournet-tag">Rich Omega-3</span>
+              <span class="bournet-tag">French Technique</span>
+            </div>
+            <h3 class="dish-card-title">Pan-Seared Norwegian Herb Salmon</h3>
+            <p class="dish-card-description">Crisp-skin Atlantic salmon rested on charred asparagus spears, silken parsnip-vanilla mousseline, and a fragrant caper-dill lemon noisette reduction.</p>
+            <div class="dish-meta-row">
+              <span class="dish-meta-pill">🔥 540 kcal</span>
+              <span class="dish-meta-pill">⚡ 42g protein</span>
+              <span class="dish-meta-pill">⏱️ 18m</span>
+            </div>
+            <div class="dish-card-footer">
+              <div class="dish-price-block">
+                <span class="dish-price-currency">₹</span>
+                <span class="dish-price-value">1,250.00</span>
+              </div>
+              <button type="button" class="btn-order-now btn-add-continental anim-bounce-click" data-dish-id="cont-salmon-02">
+                <span>+ Add to Order</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Char-Grilled Rosemary Tenderloin Steak -->
+        <article class="dish-card continental-dish-card" id="card-cont-steak-03" data-dish-id="cont-steak-03">
+          <div class="dish-card-image-wrap">
+            <img src="https://images.pexels.com/photos/3535383/pexels-photo-3535383.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Char-Grilled Rosemary Tenderloin Steak" class="dish-card-img" loading="lazy">
+            <div class="continental-badge-overlay">
+              <span class="dietary-badge-nonveg"><span aria-hidden="true">🍗</span> Non-Veg</span>
+            </div>
+            <span class="continental-cuisine-tag">Bordeaux, France</span>
+          </div>
+          <div class="dish-card-content">
+            <div class="bournet-tags-row">
+              <span class="bournet-tag">Chef's Signature Cut</span>
+              <span class="bournet-tag">Dry-Aged</span>
+              <span class="bournet-tag">High Protein</span>
+            </div>
+            <h3 class="dish-card-title">Char-Grilled Rosemary Tenderloin Steak</h3>
+            <p class="dish-card-description">28-day dry-aged prime beef tenderloin flame-seared over rosemary embers, accompanied by roasted bone marrow jus, truffle-whipped Yukon gold mash, and glazed baby heirloom carrots.</p>
+            <div class="dish-meta-row">
+              <span class="dish-meta-pill">🔥 760 kcal</span>
+              <span class="dish-meta-pill">⚡ 52g protein</span>
+              <span class="dish-meta-pill">⏱️ 22m</span>
+            </div>
+            <div class="dish-card-footer">
+              <div class="dish-price-block">
+                <span class="dish-price-currency">₹</span>
+                <span class="dish-price-value">1,450.00</span>
+              </div>
+              <button type="button" class="btn-order-now btn-add-continental anim-bounce-click" data-dish-id="cont-steak-03">
+                <span>+ Add to Order</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Aubergine & Buffalo Mozzarella Parmigiana Bake -->
+        <article class="dish-card continental-dish-card" id="card-cont-bake-04" data-dish-id="cont-bake-04">
+          <div class="dish-card-image-wrap">
+            <img src="https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Aubergine &amp; Buffalo Mozzarella Parmigiana Bake" class="dish-card-img" loading="lazy">
+            <div class="continental-badge-overlay">
+              <span class="dietary-badge-veg"><span aria-hidden="true">🥦</span> Vegetarian</span>
+            </div>
+            <span class="continental-cuisine-tag">Campania, Italy</span>
+          </div>
+          <div class="dish-card-content">
+            <div class="bournet-tags-row">
+              <span class="bournet-tag">Oven Baked</span>
+              <span class="bournet-tag">Buffalo Mozzarella</span>
+              <span class="bournet-tag">Campania Classic</span>
+            </div>
+            <h3 class="dish-card-title">Aubergine &amp; Buffalo Mozzarella Parmigiana Bake</h3>
+            <p class="dish-card-description">Golden-crusted layers of sliced Italian aubergine, slow-simmered San Marzano tomato ragu, melted Campania buffalo mozzarella, and fresh sweet basil.</p>
+            <div class="dish-meta-row">
+              <span class="dish-meta-pill">🔥 580 kcal</span>
+              <span class="dish-meta-pill">⚡ 24g protein</span>
+              <span class="dish-meta-pill">⏱️ 20m</span>
+            </div>
+            <div class="dish-card-footer">
+              <div class="dish-price-block">
+                <span class="dish-price-currency">₹</span>
+                <span class="dish-price-value">740.00</span>
+              </div>
+              <button type="button" class="btn-order-now btn-add-continental anim-bounce-click" data-dish-id="cont-bake-04">
+                <span>+ Add to Order</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Saffron & Wild Mushroom Arborio Risotto -->
+        <article class="dish-card continental-dish-card" id="card-cont-risotto-05" data-dish-id="cont-risotto-05">
+          <div class="dish-card-image-wrap">
+            <img src="https://images.pexels.com/photos/5638527/pexels-photo-5638527.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Saffron &amp; Wild Mushroom Arborio Risotto" class="dish-card-img" loading="lazy">
+            <div class="continental-badge-overlay">
+              <span class="dietary-badge-veg"><span aria-hidden="true">🥦</span> Vegetarian</span>
+            </div>
+            <span class="continental-cuisine-tag">Milan, Italy</span>
+          </div>
+          <div class="dish-card-content">
+            <div class="bournet-tags-row">
+              <span class="bournet-tag">Carnaroli Arborio</span>
+              <span class="bournet-tag">Kashmiri Saffron</span>
+              <span class="bournet-tag">Milanese Tradition</span>
+            </div>
+            <h3 class="dish-card-title">Saffron &amp; Wild Mushroom Arborio Risotto</h3>
+            <p class="dish-card-description">Creamy slow-stirred Italian carnaroli rice infused with genuine saffron threads, white wine reduction, sautéed forest chanterelles, and crispy sage crisps.</p>
+            <div class="dish-meta-row">
+              <span class="dish-meta-pill">🔥 610 kcal</span>
+              <span class="dish-meta-pill">⚡ 18g protein</span>
+              <span class="dish-meta-pill">⏱️ 19m</span>
+            </div>
+            <div class="dish-card-footer">
+              <div class="dish-price-block">
+                <span class="dish-price-currency">₹</span>
+                <span class="dish-price-value">820.00</span>
+              </div>
+              <button type="button" class="btn-order-now btn-add-continental anim-bounce-click" data-dish-id="cont-risotto-05">
+                <span>+ Add to Order</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Oven-Roasted Mediterranean Vegetable Gratin -->
+        <article class="dish-card continental-dish-card" id="card-cont-gratin-06" data-dish-id="cont-gratin-06">
+          <div class="dish-card-image-wrap">
+            <img src="https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Oven-Roasted Mediterranean Vegetable Gratin" class="dish-card-img" loading="lazy">
+            <div class="continental-badge-overlay">
+              <span class="dietary-badge-veg"><span aria-hidden="true">🥦</span> Vegetarian</span>
+            </div>
+            <span class="continental-cuisine-tag">Provence, France</span>
+          </div>
+          <div class="dish-card-content">
+            <div class="bournet-tags-row">
+              <span class="bournet-tag">French Gratin</span>
+              <span class="bournet-tag">Gruyère Crust</span>
+              <span class="bournet-tag">Provençal Herbs</span>
+            </div>
+            <h3 class="dish-card-title">Oven-Roasted Mediterranean Vegetable Gratin</h3>
+            <p class="dish-card-description">Layered zucchini, sweet bell peppers, artichoke hearts, and sliced potatoes baked in seasoned herb cream under a bubbling golden Gruyère crust.</p>
+            <div class="dish-meta-row">
+              <span class="dish-meta-pill">🔥 520 kcal</span>
+              <span class="dish-meta-pill">⚡ 16g protein</span>
+              <span class="dish-meta-pill">⏱️ 20m</span>
+            </div>
+            <div class="dish-card-footer">
+              <div class="dish-price-block">
+                <span class="dish-price-currency">₹</span>
+                <span class="dish-price-value">690.00</span>
+              </div>
+              <button type="button" class="btn-order-now btn-add-continental anim-bounce-click" data-dish-id="cont-gratin-06">
+                <span>+ Add to Order</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. Tuscan Herb-Roasted Corn-Fed Chicken Supreme -->
+        <article class="dish-card continental-dish-card" id="card-cont-chicken-07" data-dish-id="cont-chicken-07">
+          <div class="dish-card-image-wrap">
+            <img src="https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Tuscan Herb-Roasted Corn-Fed Chicken Supreme" class="dish-card-img" loading="lazy">
+            <div class="continental-badge-overlay">
+              <span class="dietary-badge-nonveg"><span aria-hidden="true">🍗</span> Non-Veg</span>
+            </div>
+            <span class="continental-cuisine-tag">Tuscany, Italy</span>
+          </div>
+          <div class="dish-card-content">
+            <div class="bournet-tags-row">
+              <span class="bournet-tag">Corn-Fed Supreme</span>
+              <span class="bournet-tag">Creamy Polenta</span>
+              <span class="bournet-tag">Balsamic Jus</span>
+            </div>
+            <h3 class="dish-card-title">Tuscan Herb-Roasted Corn-Fed Chicken Supreme</h3>
+            <p class="dish-card-description">Pan-roasted tender chicken supreme with crisp skin, creamy mascarpone polenta, blistered balsamic cherry tomatoes, and Meyer lemon sage pan sauce.</p>
+            <div class="dish-meta-row">
+              <span class="dish-meta-pill">🔥 590 kcal</span>
+              <span class="dish-meta-pill">⚡ 44g protein</span>
+              <span class="dish-meta-pill">⏱️ 17m</span>
+            </div>
+            <div class="dish-card-footer">
+              <div class="dish-price-block">
+                <span class="dish-price-currency">₹</span>
+                <span class="dish-price-value">790.00</span>
+              </div>
+              <button type="button" class="btn-order-now btn-add-continental anim-bounce-click" data-dish-id="cont-chicken-07">
+                <span>+ Add to Order</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. Pan-Seared Sea Bass with Lemon Caper Butter -->
+        <article class="dish-card continental-dish-card" id="card-cont-seabass-08" data-dish-id="cont-seabass-08">
+          <div class="dish-card-image-wrap">
+            <img src="https://images.pexels.com/photos/262959/pexels-photo-262959.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Pan-Seared Sea Bass with Lemon Caper Butter" class="dish-card-img" loading="lazy">
+            <div class="continental-badge-overlay">
+              <span class="dietary-badge-nonveg"><span aria-hidden="true">🍗</span> Non-Veg</span>
+            </div>
+            <span class="continental-cuisine-tag">Riviera Coastal</span>
+          </div>
+          <div class="dish-card-content">
+            <div class="bournet-tags-row">
+              <span class="bournet-tag">Mediterranean Catch</span>
+              <span class="bournet-tag">Caper Butter</span>
+              <span class="bournet-tag">Garlic Confit</span>
+            </div>
+            <h3 class="dish-card-title">Pan-Seared Sea Bass with Lemon Caper Butter</h3>
+            <p class="dish-card-description">Flaky Mediterranean sea bass seared in browned beurre noisette, served with sautéed baby zucchini coins, confit crushed garlic, and charred lemon wedges.</p>
+            <div class="dish-meta-row">
+              <span class="dish-meta-pill">🔥 480 kcal</span>
+              <span class="dish-meta-pill">⚡ 38g protein</span>
+              <span class="dish-meta-pill">⏱️ 15m</span>
+            </div>
+            <div class="dish-card-footer">
+              <div class="dish-price-block">
+                <span class="dish-price-currency">₹</span>
+                <span class="dish-price-value">1,180.00</span>
+              </div>
+              <button type="button" class="btn-order-now btn-add-continental anim-bounce-click" data-dish-id="cont-seabass-08">
+                <span>+ Add to Order</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="builder-section" id="build-your-own">
+      <div class="builder-heading">
+        <span class="premium-eyebrow">ROYAL CHEF'S PASS</span>
+        <h2>Build your royal feast</h2>
+        <p>Choose your heritage grain base, regional Indian protein, accompaniments, and artisanal gravy.</p>
+      </div>
+      <form id="customMealForm" class="custom-builder-form">
+        <div id="customBuilderOptions" class="custom-builder-options" aria-live="polite"></div>
+        <div class="builder-submit-row">
+          <p id="customBuilderStatus" role="status">Loading ingredients…</p>
+          <div><strong id="customBuilderPrice">₹0.00</strong><button class="btn-order-now" type="submit" id="customBuilderAddBtn" disabled>Add feast to order</button></div>
+        </div>
+      </form>
+    </section>
+
+    <!-- =========================================================================
+         1, 2, 7. FAURA REGAL FOOTER WITH CANCELLATION POLICY
+         ========================================================================= -->
+    <footer class="faura-footer" id="fauraFooter">
+      <div class="faura-footer-pattern-bar"></div>
+      <div class="faura-footer-inner">
+        <div class="faura-footer-brand">
+          <img src="/static/assets/faura-logo.svg" alt="Faura - Flavour and Aura" class="faura-footer-logo">
+          <div class="faura-footer-tagline">Flavour &amp; Aura</div>
+          <p class="faura-footer-acronym">
+            <strong>Faura</strong> stands for <strong>Flavour and Aura</strong>. We celebrate the sensory richness of authentic regional Indian royal kitchens and classic Continental culinary craft.
+          </p>
+        </div>
+
+        <div class="faura-footer-col">
+          <h4>Cuisines</h4>
+          <ul class="faura-footer-links">
+            <li><a href="#catalogSection">North Indian Tandoori</a></li>
+            <li><a href="#catalogSection">South Indian Coastal</a></li>
+            <li><a href="#catalogSection">Eastern Mustard Curries</a></li>
+            <li><a href="#catalogSection">Western Spiced Delicacies</a></li>
+            <li><a href="#continentalSection">Continental Pastas &amp; Steaks</a></li>
+            <li><a href="#bournetSection">Bournet Haute Cuisine</a></li>
+          </ul>
+        </div>
+
+        <div class="faura-footer-col">
+          <h4>Experiences</h4>
+          <ul class="faura-footer-links">
+            <li><a href="#reservation" data-open-reservation="true">VIP Table Concierge</a></li>
+            <li><a href="#build-your-own">Build-Your-Own Feast</a></li>
+            <li><a href="#premium">Chef's Table Selection</a></li>
+            <li><a href="#accountProfile">Royal Token Wallet</a></li>
+          </ul>
+        </div>
+
+        <div class="faura-footer-col">
+          <h4>Policies &amp; Trust</h4>
+          <div class="faura-footer-policy-box">
+            <div class="faura-footer-policy-title">
+              <span>📜 Cancellation Policy</span>
+            </div>
+            <p class="faura-footer-policy-text">
+              Extra charges apply for the cancellation of an order after it has been placed. <strong>Crucially, this extra cancellation charge only applies to Cash on Delivery (COD) orders.</strong> Prepaid digital orders (UPI, Cards, Net Banking) incur zero cancellation fees.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faura-footer-bottom">
+        <div>© 2026 Faura (Flavour and Aura). All rights reserved. Heritage Pan-Indian &amp; Continental Fine Dining.</div>
+        <div>Crafted with Passion &amp; Flavour · Zero Cancellation on Prepaid Orders</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- =========================================================================
+       5. FLOATING GLASS BOTTOM CART CAPSULE
+       ========================================================================= -->
+  <div class="floating-cart-capsule" id="floatingCartCapsule" style="transform: translate(-50%, 120px); opacity: 0;">
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <div class="cart-badge-count" id="cartBadgeCount">0</div>
+      <div class="cart-capsule-subtotal" id="cartCapsuleSubtotal">₹0.00</div>
+    </div>
+
+    <!-- Free Delivery Dynamic Threshold Bar -->
+    <div style="flex-grow: 1; display: flex; flex-direction: column; min-width: 0;">
+      <div class="threshold-label" id="thresholdLabel">
+        Add <span style="color: var(--bistro-orange); font-weight: 700;">₹2,075.00</span> more for <strong>FREE Delivery</strong>
+      </div>
+      <div class="threshold-progress-track">
+        <div class="threshold-progress-fill" id="thresholdProgressFill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <button class="btn-open-cart anim-bounce-click" id="openCartBtn">
+      <span>Review Order</span>
+      <span>➔</span>
+    </button>
+  </div>
+
+  <!-- =========================================================================
+       6. MODULAR DISH BUILDER CUSTOMIZER MODAL
+       ========================================================================= -->
+  <div class="modal-backdrop" id="customizerModalBackdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--bistro-dark); margin: 0;" id="customizerModalTitle">Customizer</h3>
+        <button class="modal-close-btn" id="customizerModalClose">✕</button>
+      </div>
+
+      <div class="modal-body" id="customizerModalBody">
+        <!-- Steps rendered dynamically by dishBuilder.js -->
+      </div>
+
+      <div style="padding: 1.25rem 1.5rem; border-top: 1px solid var(--bistro-gray-border); background: #FAF8F5; display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; flex-direction: column;">
+          <span style="font-size: 0.8rem; color: var(--bistro-gray-text);" id="customizerLiveCals">0 TOTAL CALS</span>
+          <span style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: var(--bistro-orange);" id="customizerLivePrice">₹0.00</span>
+        </div>
+        <button class="btn-order-now anim-bounce-click" id="customizerAddToCartBtn" style="background: var(--bistro-orange); color: #fff; border-color: var(--bistro-orange);">
+          Add Custom Dish to Cart 🍣
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       7. ALLERGEN INGREDIENT EXCLUDE / SWAP DRAWER MODAL
+       ========================================================================= -->
+  <div class="modal-backdrop" id="swapModalBackdrop">
+    <div class="modal-card" style="max-width: 520px;">
+      <div class="modal-header">
+        <h3 style="color: var(--shield-coral); font-size: 1.1rem; margin: 0;">🛡️ Allergen Guard: Safe Swaps</h3>
+        <button class="modal-close-btn" id="swapModalClose">✕</button>
+      </div>
+      <div class="modal-body" id="swapModalBody">
+        <!-- Injected dynamically by allergenShield.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       8. OPTIMISTIC CART & SLA CHECKOUT DRAWER
+       ========================================================================= -->
+  <div class="cart-drawer-backdrop" id="cartDrawerBackdrop">
+    <div class="cart-drawer">
+      <div class="modal-header">
+        <h3 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin: 0;">Your Faura Order</h3>
+        <button class="modal-close-btn" id="cartDrawerClose">✕</button>
+      </div>
+
+      <!-- Item List -->
+      <div style="padding: 1.25rem; overflow-y: auto; flex-grow: 1; display: flex; flex-direction: column; gap: 1rem;" id="drawerItemsList">
+        <!-- Rendered by optimisticCart.js -->
+      </div>
+
+      <div class="checkout-options">
+        <fieldset>
+          <legend>Delivery speed</legend>
+          <label><input type="radio" name="deliveryMode" value="standard" checked> Standard</label>
+          <label><input type="radio" name="deliveryMode" value="express"> Express <span>priority dispatch</span></label>
+        </fieldset>
+        <fieldset>
+          <legend>Payment</legend>
+          <label><input type="radio" name="paymentMethod" value="upi" checked> UPI</label>
+          <label><input type="radio" name="paymentMethod" value="card"> Card</label>
+          <label><input type="radio" name="paymentMethod" value="netbanking"> Net banking</label>
+          <label><input type="radio" name="paymentMethod" value="cod"> Cash on delivery</label>
+          <label><input type="radio" name="paymentMethod" value="tokens"> Wallet tokens</label>
+        </fieldset>
+        <p class="gateway-note">Online payments need a configured provider. Wallet tokens are credited only after payment confirmation.</p>
+      </div>
+
+      <!-- FEATURE 2: DISCOUNT COUPON PROMO WIDGET -->
+      <div class="promo-code-container">
+        <button type="button" class="promo-toggle-btn" id="promoToggleBtn">
+          <span>🏷️ Have a promo code?</span>
+          <span class="promo-chevron">▼</span>
+        </button>
+        <div class="promo-input-group" id="promoInputGroup" style="display: none;">
+          <input type="text" id="promoCodeInput" placeholder="e.g. BOURNET20" autocomplete="off" autocapitalize="characters">
+          <button type="button" id="promoApplyBtn" class="btn-apply-promo">Apply</button>
+        </div>
+        <div class="promo-status-msg" id="promoStatusMsg" style="display: none;"></div>
+        <div class="promo-chips-row">
+          <button type="button" class="promo-chip-btn" data-code="BOURNET20">BOURNET20 · 20% off</button>
+          <button type="button" class="promo-chip-btn" data-code="WELCOME100">WELCOME100 · ₹100 off</button>
+          <button type="button" class="promo-chip-btn" data-code="VIP500">VIP500 · ₹500 off</button>
+        </div>
+      </div>
+
+      <!-- Financial Breakdown -->
+      <div style="padding: 1.25rem; background: #FFFFFF;">
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--bistro-gray-text); margin-bottom: 0.5rem;">
+          <span>Subtotal</span>
+          <span id="drawerSubtotal">₹0.00</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--bistro-gray-text); margin-bottom: 0.5rem;">
+          <span>Delivery Fee</span>
+          <span id="drawerDeliveryFee">₹0.00</span>
+        </div>
+        <div class="checkout-fee-row" id="drawerExpressFeeRow" hidden><span>Express fee</span><span id="drawerExpressFee">₹0.00</span></div>
+        <div class="checkout-fee-row" id="drawerCodFeeRow" hidden><span>COD Charge</span><span id="drawerCodFee">₹10.00</span></div>
+        <div class="checkout-fee-row" id="drawerTokenDiscountRow" hidden><span>Premium token discount</span><span id="drawerTokenDiscount">−₹0.00</span></div>
+        <div class="checkout-fee-row promo-discount-row" id="drawerCouponRow" hidden><span>Promo code discount</span><strong id="drawerCouponDiscount" style="color: #059669;">−₹0.00</strong></div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--bistro-gray-text); margin-bottom: 0.5rem;">
+          <span>Estimated Prep &amp; Dispatch</span>
+          <span id="drawerEta" style="color: var(--bistro-orange); font-weight: 700;">25-30 mins</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: 800; color: var(--bistro-dark); border-top: 1px dashed var(--bistro-gray-border); padding-top: 0.75rem; margin-top: 0.5rem;">
+          <span>Total</span>
+          <span id="drawerTotal" style="color: var(--bistro-orange);">₹0.00</span>
+        </div>
+
+        <!-- Requirement 6 & 7: Cash on Delivery Cancellation Notice Widget -->
+        <div class="cod-cancellation-banner" id="drawerCodCancellationBanner">
+          <span class="cod-warning-icon">⚠️</span>
+          <div class="cod-warning-content">
+            <div class="cod-warning-title">
+              <span>Cancellation Notice</span>
+              <span class="cod-warning-badge">COD Policy</span>
+            </div>
+            <p class="cod-warning-text">
+              Extra charges (<span class="cod-warning-charge">₹50.00</span>) apply for the cancellation of an order after it has been placed. <em>Applies strictly to Cash on Delivery (COD) orders only.</em> Prepaid digital orders (UPI, Cards, Tokens) incur zero cancellation penalties.
+            </p>
+          </div>
+        </div>
+
+        <button class="btn-order-now anim-bounce-click" id="placeOrderBtn" style="margin-top: 1rem; width: 100%; padding: 0.85rem; background: var(--bistro-orange); color: #fff; border-color: var(--bistro-orange);">
+          Confirm Faura Order ✨
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="accountModalBackdrop">
+    <div class="modal-card account-modal-card">
+      <div class="modal-header">
+        <div><h3 id="accountModalTitle">Create your account</h3><p id="accountModalSubtitle">Your orders, preferences, and wallet in one place</p></div>
+        <button class="modal-close-btn" id="accountModalClose" aria-label="Close account">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="accountAuthForm" class="account-auth-form">
+          <label>Name<input name="display_name" autocomplete="name" minlength="1" maxlength="100" required></label>
+          <label>Phone<input name="phone" type="tel" autocomplete="tel" maxlength="30"></label>
+          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          <label>Password<input name="password" type="password" autocomplete="new-password" minlength="8" required></label>
+          <button class="btn-order-now" type="submit" id="accountSubmitBtn">Create account</button>
+          <button class="text-action" type="button" id="accountModeBtn">Already registered? Sign in</button>
+        </form>
+        <div class="account-status" id="accountStatus" role="status"></div>
+        <section id="accountProfile" hidden>
+          <div class="profile-summary"><div><span>Wallet balance</span><strong id="walletBalance">₹0.00 tokens</strong></div><div><span>Membership</span><strong id="premiumStatus">Standard</strong></div></div>
+          <form id="profileDetailsForm" class="compact-form">
+            <label>Display name<input name="display_name" required minlength="1" maxlength="100"></label>
+            <label>Phone<input name="phone" type="tel" autocomplete="tel" maxlength="30"></label>
+            <button type="submit" class="btn-order-now">Save profile</button>
+          </form>
+          <button class="btn-order-now premium-action" type="button" id="premiumActivateBtn">Activate 30-day Premium · 499 tokens</button>
+          <form id="walletTopUpForm" class="compact-form">
+            <label>Buy tokens<input name="amount" type="number" min="100" max="50000" step="100" value="500" required></label>
+            <label>Payment method<select name="payment_method"><option value="upi">UPI</option><option value="card">Card</option><option value="netbanking">Net banking</option></select></label>
+            <button type="submit" class="btn-order-now">Request token top-up</button>
+          </form>
+          <form id="dietaryPreferencesForm" class="compact-form">
+            <label>Dietary preferences<select name="dietary_preferences" multiple size="4"><option value="veg">Vegetarian</option><option value="non-veg">Non-vegetarian</option><option value="egg">Eggetarian</option><option value="vegan">Vegan</option><option value="gluten-free">Gluten-free</option></select></label>
+            <button type="submit" class="btn-order-now">Save preferences</button>
+          </form>
+          <form id="addressForm" class="compact-form">
+            <label>Label<input name="label" value="Home" maxlength="40"></label>
+            <label>Delivery address<input name="address" required minlength="5" maxlength="300"></label>
+            <label>Postal code<input name="postal_code" maxlength="12"></label>
+            <button type="submit" class="btn-order-now">Save address</button>
+          </form>
+          <div><h4>Saved addresses</h4><div id="savedAddressList"></div></div>
+          <div><h4>Recent orders</h4><div id="orderHistoryList"></div></div>
+          <button class="text-action" type="button" id="accountSignOutBtn">Sign out</button>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       9. REAL-TIME WEBSOCKET TRACKER & MICRO-MAP WIDGET
+       ========================================================================= -->
+  <div class="modal-backdrop" id="trackerModalBackdrop">
+    <div class="modal-card" style="max-width: 700px;">
+      <div class="modal-header">
+        <div>
+          <h3 style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; margin: 0;">🛸 Live Delivery Telemetry</h3>
+          <span id="trackerOrderIdLabel" style="font-size: 0.78rem; color: var(--bistro-orange); font-weight: 700;">Order #ZG-4890A</span>
+        </div>
+        <button class="modal-close-btn" id="trackerModalClose">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- 4-Stage Stepper -->
+        <div style="display: flex; justify-content: space-between; position: relative; margin: 1rem 0 1.5rem;">
+          <div class="step-node active" data-step="0">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--bistro-orange); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem;">1</div>
+            <span style="font-size: 0.75rem; font-weight: 600; margin-top: 0.3rem;">Received</span>
+          </div>
+          <div class="step-node" data-step="1">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: #E8E8EE; color: #555; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem;">2</div>
+            <span style="font-size: 0.75rem; font-weight: 600; margin-top: 0.3rem;">Preparing</span>
+          </div>
+          <div class="step-node" data-step="2">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: #E8E8EE; color: #555; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem;">3</div>
+            <span style="font-size: 0.75rem; font-weight: 600; margin-top: 0.3rem;">Out for Delivery</span>
+          </div>
+          <div class="step-node" data-step="3">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: #E8E8EE; color: #555; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem;">4</div>
+            <span style="font-size: 0.75rem; font-weight: 600; margin-top: 0.3rem;">Delivered</span>
+          </div>
+        </div>
+        <div class="tracker-progress-track" role="progressbar" aria-label="Delivery progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div id="trackerProgressFill" class="tracker-progress-fill"></div>
+        </div>
+
+        <!-- Real-Time Micro-Map Canvas Illustration -->
+        <div style="position: relative; width: 100%; height: 220px; border-radius: var(--radius-sm); border: 1px solid var(--bistro-gray-border); overflow: hidden; background: #121216; margin-bottom: 1rem;">
+          <canvas id="microMapCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
+          <div style="position: absolute; bottom: 0.5rem; left: 0.5rem; right: 0.5rem; background: rgba(0, 0, 0, 0.75); border-radius: 4px; padding: 0.4rem 0.8rem; display: flex; justify-content: space-between; font-size: 0.72rem; color: #E0E0E0;">
+            <div>Speed: <strong style="color: var(--bistro-orange);" id="hudSpeed">42.5 km/h</strong></div>
+            <div>Altitude: <strong style="color: var(--bistro-orange);" id="hudAltitude">88.0m</strong></div>
+            <div>Battery: <strong style="color: var(--bistro-orange);" id="hudBattery">94%</strong></div>
+            <div>Remaining: <strong style="color: var(--bistro-orange);" id="hudDistance">2.1 km</strong></div>
+          </div>
+        </div>
+
+        <div style="background: var(--bistro-orange-light); border: 1px solid var(--bistro-orange); border-radius: var(--radius-sm); padding: 0.85rem 1.25rem; display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <h4 style="margin: 0; font-size: 0.9rem; color: var(--bistro-dark);" id="trackerStageDesc">Bistro kitchen verified order &amp; active allergen filters.</h4>
+            <p style="margin: 0.2rem 0 0; font-size: 0.75rem; color: var(--bistro-gray-text);">SLA: Prep SLA + Queue Delay + Transit Time</p>
+          </div>
+          <div style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--bistro-orange);" id="trackerEtaClock">
+            24m
+          </div>
+        </div>
+        <p id="trackerDriverInfo" class="tracker-driver-info" aria-live="polite"></p>
+
+        <button class="btn-order-now anim-bounce-click" id="trackerResetBtn" style="margin-top: 1rem; width: 100%;">
+          Order More Sushi &amp; Bowls 🍣
+        </button>
+        <button class="btn-order-now support-action" id="trackerSupportBtn" type="button" hidden>Contact Technical Support</button>
+        <form id="trackerSupportForm" class="support-form" hidden>
+          <label for="supportMessage">How can we help with this order?</label>
+          <textarea id="supportMessage" name="message" minlength="5" maxlength="2000" required></textarea>
+          <button type="submit" class="btn-order-now">Create support ticket</button>
+          <p id="supportTicketStatus" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="orderReceiptBackdrop" role="dialog" aria-modal="true" aria-labelledby="receiptTitle">
+    <div class="modal-card order-receipt-card">
+      <div class="modal-header">
+        <div><span class="premium-eyebrow">ORDER CONFIRMED</span><h3 id="receiptTitle">Your kitchen ticket</h3><p id="receiptOrderId"></p></div>
+        <button class="modal-close-btn" id="receiptCloseBtn" type="button" aria-label="Close receipt">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="receiptItems" class="receipt-items"></div>
+        <dl class="receipt-totals">
+          <div><dt>Subtotal</dt><dd id="receiptSubtotal"></dd></div>
+          <div><dt>Delivery</dt><dd id="receiptDelivery"></dd></div>
+          <div><dt>Cash-on-delivery charge</dt><dd id="receiptCod"></dd></div>
+          <div><dt>Express delivery</dt><dd id="receiptExpress"></dd></div>
+          <div><dt>Premium discount</dt><dd id="receiptDiscount"></dd></div>
+          <div><dt>Payment</dt><dd id="receiptPayment"></dd></div>
+          <div class="receipt-grand-total"><dt>Total paid / due</dt><dd id="receiptTotal"></dd></div>
+          <div><dt>Estimated arrival</dt><dd id="receiptEta"></dd></div>
+        </dl>
+        <!-- COD Cancellation notice on receipt -->
+        <div id="receiptCodNotice" class="cod-cancellation-banner" style="display: none; margin: 1rem 0;">
+          <span class="cod-warning-icon">⚠️</span>
+          <div class="cod-warning-content">
+            <div class="cod-warning-title">COD Cancellation Notice</div>
+            <p class="cod-warning-text">An extra fee of <strong>₹50.00</strong> applies if this Cash on Delivery order is cancelled after placement.</p>
+          </div>
+        </div>
+        <button class="btn-order-now receipt-track-button" id="receiptTrackBtn" type="button">Track this delivery</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       FEATURE 1: PREMIUM TABLE RESERVATION MODAL
+       ========================================================================= -->
+  <div class="modal-backdrop" id="reservationModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="resModalTitle">
+    <div class="modal-card reservation-modal-card">
+      <div class="modal-header">
+        <div>
+          <span class="premium-eyebrow">TABLE CONCIERGE · FINE DINING</span>
+          <h3 id="resModalTitle">Reserve a Table</h3>
+          <p class="modal-subtitle">Experience panoramic skyline dining, private velvet booths, or chef's omakase.</p>
+        </div>
+        <button class="modal-close-btn" id="reservationModalClose" aria-label="Close table reservations">✕</button>
+      </div>
+
+      <div class="modal-body res-modal-body">
+        <form id="tableReservationForm">
+          <!-- Step 1: Date & Time Picker -->
+          <div class="res-form-section">
+            <label class="res-section-label" for="resDateInput">📅 1. Select Date &amp; Dining Time</label>
+            <div class="res-date-time-row">
+              <input type="date" id="resDateInput" class="res-date-picker" required>
+            </div>
+            <div class="res-time-slots" id="resTimeSlots" role="radiogroup" aria-label="Available Time Slots">
+              <!-- Rendered via tableReservation.js -->
+            </div>
+          </div>
+
+          <!-- Step 2: Party Size -->
+          <div class="res-form-section">
+            <label class="res-section-label">👥 2. Select Party Size</label>
+            <div class="res-party-pills" id="resPartySizeSelector" role="radiogroup" aria-label="Party Size">
+              <!-- Rendered via tableReservation.js -->
+            </div>
+          </div>
+
+          <!-- Step 3: Visual Floor Plan & VIP Table Selector -->
+          <div class="res-form-section">
+            <div class="res-section-header-row">
+              <label class="res-section-label">🪑 3. Select Table Experience</label>
+              <span class="res-hint">Click a table card to select</span>
+            </div>
+            <div class="res-tables-grid" id="resTablesGrid">
+              <!-- Rendered via tableReservation.js with VIP/Standard cards -->
+            </div>
+          </div>
+
+          <!-- Step 4: VIP Deposit Checkout Step -->
+          <div id="resDepositStep" style="display: none;"></div>
+
+          <!-- Step 5: Guest Information -->
+          <div class="res-form-section res-guest-info">
+            <label class="res-section-label">📝 4. Guest Details &amp; Requests</label>
+            <div class="res-inputs-grid">
+              <label>Full Name
+                <input type="text" id="resCustomerName" required placeholder="Lord / Lady Eater" minlength="2" maxlength="100">
+              </label>
+              <label>Email Address
+                <input type="email" id="resCustomerEmail" required placeholder="eater@example.com">
+              </label>
+              <label>Phone Number
+                <input type="tel" id="resCustomerPhone" required placeholder="+91 98765 43210">
+              </label>
+            </div>
+            <label style="margin-top: 0.5rem; display: block;">Special Occasion / Dietary Notes
+              <textarea id="resSpecialRequests" placeholder="Anniversary table, window preference, gluten allergy, quiet corner..." rows="2" maxlength="1000"></textarea>
+            </label>
+          </div>
+
+          <div id="resStatusMessage" class="res-status-msg" style="display: none;" role="alert"></div>
+
+          <div class="res-submit-bar" style="margin-top: 1rem;">
+            <button type="submit" class="btn-order-now btn-res-submit anim-bounce-click" id="resSubmitBtn" disabled>
+              Select a Table to Continue
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reservation Confirmation Voucher Modal -->
+  <div class="modal-backdrop" id="reservationReceiptBackdrop" role="dialog" aria-modal="true" aria-labelledby="resReceiptTitle">
+    <div class="modal-card order-receipt-card res-receipt-card">
+      <div class="modal-header">
+        <div>
+          <span class="premium-eyebrow">TABLE RESERVED ✓</span>
+          <h3 id="resReceiptTitle">Your Dining Voucher</h3>
+          <p id="resReceiptCode" class="voucher-code"></p>
+        </div>
+        <button class="modal-close-btn" id="resReceiptClose" type="button" aria-label="Close voucher">✕</button>
+      </div>
+      <div class="modal-body">
+        <dl class="receipt-totals res-voucher-details">
+          <div><dt>Table</dt><dd id="resReceiptTable"></dd></div>
+          <div><dt>Date &amp; Time</dt><dd id="resReceiptDate"></dd></div>
+          <div><dt>Party Size</dt><dd id="resReceiptParty"></dd></div>
+          <div><dt>Deposit Status</dt><dd id="resReceiptDeposit"></dd></div>
+        </dl>
+        <p id="resReceiptNotes" class="res-voucher-notes"></p>
+        <button class="btn-order-now" type="button" onclick="document.getElementById('reservationReceiptBackdrop').classList.remove('open')">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- JavaScript Modules -->
+  <script type="module" src="/static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <style>
+      .mandala-stroke { fill: none; stroke: #D4AF37; stroke-width: 0.75; stroke-opacity: 0.14; }
+      .mandala-saffron { fill: none; stroke: #E36414; stroke-width: 0.6; stroke-opacity: 0.12; }
+      .mandala-dot { fill: #D4AF37; fill-opacity: 0.18; }
+    </style>
+  </defs>
+
+  <!-- Center Mandala Geometry -->
+  <circle cx="60" cy="60" r="48" class="mandala-stroke"/>
+  <circle cx="60" cy="60" r="36" class="mandala-saffron"/>
+  <circle cx="60" cy="60" r="24" class="mandala-stroke"/>
+  <circle cx="60" cy="60" r="12" class="mandala-saffron"/>
+  <circle cx="60" cy="60" r="2.5" class="mandala-dot"/>
+
+  <!-- 8-Point Star Petals -->
+  <path d="M 60 12 L 64 36 L 88 32 L 72 48 L 96 60 L 72 72 L 88 88 L 64 84 L 60 108 L 56 84 L 32 88 L 48 72 L 24 60 L 48 48 L 32 32 L 56 36 Z" class="mandala-stroke"/>
+
+  <!-- Corner Flourishes for Seamless Tiling -->
+  <path d="M 0 0 C 15 15, 15 25, 0 35" class="mandala-stroke"/>
+  <path d="M 0 0 C 25 15, 35 15, 35 0" class="mandala-stroke"/>
+  <circle cx="0" cy="0" r="16" class="mandala-saffron"/>
+  <circle cx="0" cy="0" r="3" class="mandala-dot"/>
+
+  <path d="M 120 0 C 105 15, 105 25, 120 35" class="mandala-stroke"/>
+  <path d="M 120 0 C 95 15, 85 15, 85 0" class="mandala-stroke"/>
+  <circle cx="120" cy="0" r="16" class="mandala-saffron"/>
+  <circle cx="120" cy="0" r="3" class="mandala-dot"/>
+
+  <path d="M 0 120 C 15 105, 15 95, 0 85" class="mandala-stroke"/>
+  <path d="M 0 120 C 25 105, 35 105, 35 120" class="mandala-stroke"/>
+  <circle cx="0" cy="120" r="16" class="mandala-saffron"/>
+  <circle cx="0" cy="120" r="3" class="mandala-dot"/>
+
+  <path d="M 120 120 C 105 105, 105 95, 120 85" class="mandala-stroke"/>
+  <path d="M 120 120 C 95 105, 85 105, 85 120" class="mandala-stroke"/>
+  <circle cx="120" cy="120" r="16" class="mandala-saffron"/>
+  <circle cx="120" cy="120" r="3" class="mandala-dot"/>
+
+  <!-- Accent Paisley Sparks -->
+  <circle cx="60" cy="24" r="1.5" class="mandala-dot"/>
+  <circle cx="96" cy="60" r="1.5" class="mandala-dot"/>
+  <circle cx="60" cy="96" r="1.5" class="mandala-dot"/>
+  <circle cx="24" cy="60" r="1.5" class="mandala-dot"/>
+</svg>

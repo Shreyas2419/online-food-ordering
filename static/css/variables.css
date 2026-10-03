@@ -1,0 +1,108 @@
+/* Design Tokens - Faura (Flavour and Aura) Indian Aesthetic & Continental Theme */
+:root {
+  /* Faura Royal Indian Palette */
+  --bistro-orange: #E36414;              /* Vibrant Saffron */
+  --bistro-orange-hover: #C54E05;        /* Deep Charred Saffron */
+  --bistro-orange-glow: rgba(227, 100, 20, 0.35);
+  --bistro-orange-light: rgba(227, 100, 20, 0.09);
+
+  --faura-saffron: #E36414;
+  --faura-gold: #D4AF37;                 /* Royal Zari Gold */
+  --faura-gold-hover: #BF9B27;
+  --faura-gold-light: rgba(212, 175, 55, 0.14);
+  --faura-gold-border: rgba(212, 175, 55, 0.32);
+  --faura-terracotta: #8B1E0F;           /* Earthy Terracotta */
+  --faura-terracotta-light: rgba(139, 30, 15, 0.08);
+  --faura-crimson: #A72613;
+  --faura-cream: #FAF6EF;                /* Warm Indian Cream */
+  --faura-ivory: #FFFDF9;                /* Pure Warm Ivory */
+
+  --bistro-amber-bg: #F8F3EC;            /* Warm Earthy Background */
+  --bistro-dark: #221815;                /* Spice Black / Deep Clove */
+  --bistro-charcoal: #3D2D27;            /* Roasted Fennel Brown */
+  --bistro-gray-text: #706256;           /* Warm Muted Brown */
+  --bistro-gray-border: #EADBCE;         /* Warm Sandstone Border */
+  --bistro-gray-light: #FBF8F4;          /* Warm Milk Mist */
+  --bistro-card-bg: #FFFFFF;
+
+  /* Allergen Shield Colors */
+  --shield-green: #248A44;
+  --shield-green-light: rgba(36, 138, 68, 0.12);
+  --shield-coral: #C5221F;
+  --shield-coral-light: rgba(197, 34, 31, 0.12);
+
+  /* Typography */
+  --font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Jost', Georgia, serif;
+
+  /* Card & Shadow Elevations */
+  --shadow-bistro-card: 0 30px 80px rgba(88, 38, 12, 0.11), 0 10px 25px rgba(227, 100, 20, 0.05);
+  --shadow-float-dish: 0 30px 50px -15px rgba(139, 30, 15, 0.22);
+  --shadow-modal: 0 40px 90px rgba(34, 24, 21, 0.28);
+  --shadow-gold-glow: 0 4px 20px rgba(212, 175, 55, 0.25);
+
+  /* Physics & Transitions */
+  --spring-easing: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --smooth-easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s var(--smooth-easing);
+  --transition-bounce: transform 0.4s var(--spring-easing), box-shadow 0.3s ease;
+
+  /* Layout */
+  --card-max-width: 1600px;
+  --radius-card: 26px;
+  --radius-pill: 9999px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+
+  /* Z-Index Hierarchy */
+  --z-base: 1;
+  --z-sticky-nav: 50;
+  --z-floating-cart: 80;
+  --z-modal-backdrop: 100;
+  --z-modal-content: 110;
+  --z-toast: 150;
+
+  /* Ambient Aura Highlight Tokens */
+  --mouse-x: 50%;
+  --mouse-y: 35%;
+  --aura-glow-color: rgba(227, 100, 20, 0.42);
+  --aura-halo-color: rgba(212, 175, 55, 0.22);
+  --aura-ambient-bg: rgba(227, 100, 20, 0.10);
+  --aura-card-backlight: 0 30px 90px rgba(227, 100, 20, 0.22), 0 0 120px rgba(227, 100, 20, 0.10);
+}
+
+/* Dynamic Aura Themes */
+body[data-aura="saffron"] {
+  --aura-glow-color: rgba(227, 100, 20, 0.52);
+  --aura-halo-color: rgba(245, 158, 11, 0.28);
+  --aura-ambient-bg: rgba(227, 100, 20, 0.12);
+  --aura-card-backlight: 0 35px 100px rgba(227, 100, 20, 0.28), 0 0 140px rgba(227, 100, 20, 0.14);
+}
+
+body[data-aura="gold"] {
+  --aura-glow-color: rgba(212, 175, 55, 0.58);
+  --aura-halo-color: rgba(250, 204, 21, 0.32);
+  --aura-ambient-bg: rgba(212, 175, 55, 0.15);
+  --aura-card-backlight: 0 35px 100px rgba(212, 175, 55, 0.34), 0 0 140px rgba(212, 175, 55, 0.16);
+}
+
+body[data-aura="terracotta"] {
+  --aura-glow-color: rgba(139, 30, 15, 0.52);
+  --aura-halo-color: rgba(185, 28, 28, 0.26);
+  --aura-ambient-bg: rgba(139, 30, 15, 0.12);
+  --aura-card-backlight: 0 35px 100px rgba(139, 30, 15, 0.30), 0 0 140px rgba(139, 30, 15, 0.14);
+}
+
+body[data-aura="emerald"] {
+  --aura-glow-color: rgba(16, 120, 70, 0.50);
+  --aura-halo-color: rgba(34, 197, 94, 0.26);
+  --aura-ambient-bg: rgba(16, 120, 70, 0.12);
+  --aura-card-backlight: 0 35px 100px rgba(16, 120, 70, 0.28), 0 0 140px rgba(16, 120, 70, 0.14);
+}
+
+body[data-aura="pulse"] {
+  --aura-glow-color: rgba(227, 100, 20, 0.55);
+  --aura-halo-color: rgba(212, 175, 55, 0.35);
+  --aura-ambient-bg: rgba(227, 100, 20, 0.14);
+  --aura-card-backlight: 0 35px 110px rgba(227, 100, 20, 0.32), 0 0 160px rgba(212, 175, 55, 0.20);
+}

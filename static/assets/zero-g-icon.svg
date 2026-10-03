@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" role="img" aria-label="CR's Kitchen Gourmet Bistro Logo">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="logoBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1F28"/>
+      <stop offset="100%" stop-color="#12131A"/>
+    </linearGradient>
+
+    <!-- Warm Appetizing Cloche Gradient -->
+    <linearGradient id="clocheFlameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7A29"/>
+      <stop offset="50%" stop-color="#F37021"/>
+      <stop offset="100%" stop-color="#D90429"/>
+    </linearGradient>
+
+    <!-- Golden Highlight Gradient -->
+    <linearGradient id="goldGlowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE066"/>
+      <stop offset="100%" stop-color="#FFB703"/>
+    </linearGradient>
+
+    <!-- Fresh Mint Accent Gradient -->
+    <linearGradient id="mintAccentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <!-- Subtle Drop Shadow -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#F37021" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Squircle Base Frame -->
+  <rect width="80" height="80" rx="22" fill="url(#logoBgGrad)"/>
+  <rect x="1" y="1" width="78" height="78" rx="21" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.5"/>
+
+  <!-- Orbital Zero-G Ring / Vapor Drift -->
+  <path d="M16 48C18 36 28 26 42 25C54 24 64 30 65 37" stroke="url(#goldGlowGrad)" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 4" opacity="0.85"/>
+
+  <!-- Gourmet Cloche Dome (Anti-Gravity Floating) -->
+  <g filter="url(#softGlow)">
+    <!-- Cloche Bell -->
+    <path d="M22 43C22 29.5 30 21 40 21C50 21 58 29.5 58 43H22Z" fill="url(#clocheFlameGrad)"/>
+    
+    <!-- Cloche Lip Rim -->
+    <rect x="20" y="42" width="40" height="3.5" rx="1.75" fill="#FFE8D6"/>
+    
+    <!-- Cloche Golden Crown Handle / Flame Finial -->
+    <path d="M40 13C38.5 15.5 37 17 37 18.5C37 20.2 38.3 21.5 40 21.5C41.7 21.5 43 20.2 43 18.5C43 17 41.5 15.5 40 13Z" fill="url(#goldGlowGrad)"/>
+  </g>
+
+  <!-- Artisanal Ceramic Plate Rim (Floating Crescent) -->
+  <path d="M19 50C25 57 32 60 40 60C48 60 55 57 61 50" stroke="#FFE8D6" stroke-width="3" stroke-linecap="round"/>
+  <path d="M25 54C30 58.5 35 60.5 40 60.5C45 60.5 50 58.5 55 54" stroke="url(#goldGlowGrad)" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Fresh Microgreen Culinary Garnish Leaf -->
+  <path d="M57 23C62 21 64 16 64 16C64 16 59 17 57 20C55.8 21.8 56.4 22.8 57 23Z" fill="url(#mintAccentGrad)"/>
+
+  <!-- Dynamic Speed Particle Dots -->
+  <circle cx="21" cy="27" r="1.8" fill="url(#goldGlowGrad)" opacity="0.9"/>
+  <circle cx="61" cy="46" r="1.5" fill="#FF7A29" opacity="0.8"/>
+  <circle cx="16" cy="38" r="1.2" fill="#FFE066" opacity="0.7"/>
+</svg>

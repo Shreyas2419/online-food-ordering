@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80" role="img" aria-label="Faura - Flavour and Aura Logo">
+  <defs>
+    <!-- Saffron Flame Gradient -->
+    <linearGradient id="fauraSaffronGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8A3D"/>
+      <stop offset="45%" stop-color="#E36414"/>
+      <stop offset="100%" stop-color="#B83A0E"/>
+    </linearGradient>
+
+    <!-- Imperial Gold Gradient -->
+    <linearGradient id="fauraGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3C4"/>
+      <stop offset="35%" stop-color="#E5B23C"/>
+      <stop offset="70%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#9A7B1C"/>
+    </linearGradient>
+
+    <!-- Deep Terracotta Glow Gradient -->
+    <radialGradient id="fauraAuraGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(227, 100, 20, 0.35)"/>
+      <stop offset="60%" stop-color="rgba(212, 175, 55, 0.15)"/>
+      <stop offset="100%" stop-color="rgba(227, 100, 20, 0)"/>
+    </radialGradient>
+
+    <!-- Royal Emblem Shadow -->
+    <filter id="fauraDropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#8B1E0F" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Aura Ambient Glow -->
+  <circle cx="42" cy="40" r="38" fill="url(#fauraAuraGlow)"/>
+
+  <!-- ================= EMBLEM ICON ================= -->
+  <g filter="url(#fauraDropShadow)">
+    <!-- Base Plate / Mandala Pedestal -->
+    <ellipse cx="42" cy="58" rx="26" ry="6" fill="url(#fauraGoldGrad)" opacity="0.9"/>
+    <ellipse cx="42" cy="58" rx="20" ry="3.5" fill="#8B1E0F"/>
+
+    <!-- Sacred Diya / Cloche Dome (Outer Lotus Petals) -->
+    <path d="M 22 55 C 22 36, 33 24, 42 21 C 51 24, 62 36, 62 55 Z" 
+          fill="url(#fauraSaffronGrad)"/>
+
+    <!-- Inner Golden Arch Petals -->
+    <path d="M 28 55 C 28 40, 36 30, 42 27 C 48 30, 56 40, 56 55 Z" 
+          fill="url(#fauraGoldGrad)" opacity="0.95"/>
+
+    <!-- Center Flavour Flame / Spice Drop -->
+    <path d="M 42 12 C 38 18, 36 22, 38 27 C 40 31, 44 31, 46 27 C 48 22, 46 18, 42 12 Z" 
+          fill="url(#fauraGoldGrad)"/>
+
+    <!-- Core Flame Spark -->
+    <circle cx="42" cy="24" r="2.5" fill="#FFF3C4"/>
+
+    <!-- Ornate Mandala Side Flares -->
+    <path d="M 19 48 C 15 44, 15 39, 18 36 C 21 38, 22 43, 23 48 Z" fill="url(#fauraGoldGrad)"/>
+    <path d="M 65 48 C 69 44, 69 39, 66 36 C 63 38, 62 43, 61 48 Z" fill="url(#fauraGoldGrad)"/>
+
+    <!-- Delicate Base Dots (Pearls of Flavour) -->
+    <circle cx="32" cy="58" r="1.5" fill="#FFF3C4"/>
+    <circle cx="42" cy="59" r="2" fill="#FFF3C4"/>
+    <circle cx="52" cy="58" r="1.5" fill="#FFF3C4"/>
+  </g>
+
+  <!-- ================= TYPOGRAPHY ================= -->
+  <!-- Brand Name: FAURA -->
+  <text x="82" y="44" 
+        font-family="'Jost', 'Cinzel', 'Playfair Display', Georgia, sans-serif" 
+        font-size="34" 
+        font-weight="800" 
+        letter-spacing="3.5" 
+        fill="#221C16">
+    FAURA
+  </text>
+
+  <!-- Subtle Gold Shimmer on Lettering -->
+  <text x="82" y="44" 
+        font-family="'Jost', 'Cinzel', 'Playfair Display', Georgia, sans-serif" 
+        font-size="34" 
+        font-weight="800" 
+        letter-spacing="3.5" 
+        fill="url(#fauraSaffronGrad)" 
+        opacity="0.12">
+    FAURA
+  </text>
+
+  <!-- Brand Decorative Divider Line -->
+  <line x1="83" y1="52" x2="295" y2="52" stroke="url(#fauraGoldGrad)" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="189" cy="52" r="2.5" fill="#E36414"/>
+
+  <!-- Tagline: FLAVOUR AND AURA -->
+  <text x="84" y="66" 
+        font-family="'Jost', -apple-system, BlinkMacSystemFont, sans-serif" 
+        font-size="10.5" 
+        font-weight="600" 
+        letter-spacing="3" 
+        fill="#8B1E0F">
+    FLAVOUR &amp; AURA
+  </text>
+  
+  <text x="218" y="66" 
+        font-family="'Jost', -apple-system, BlinkMacSystemFont, sans-serif" 
+        font-size="9" 
+        font-weight="500" 
+        letter-spacing="1.5" 
+        fill="#7A6855">
+    · ROYAL DINING
+  </text>
+</svg>

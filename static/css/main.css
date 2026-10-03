@@ -1,0 +1,336 @@
+/* Global & Layout Styles - Faura (Flavour and Aura) */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&family=Cinzel:wght@600;700;800&family=Dancing+Script:wght@600;700&display=swap');
+@import url('./variables.css');
+@import url('./animations.css');
+@import url('./components.css');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bistro-amber-bg);
+  background-image:
+    radial-gradient(ellipse at 50% 28%, rgba(227, 100, 20, 0.16) 0%, rgba(212, 175, 55, 0.08) 42%, transparent 72%),
+    radial-gradient(circle at 10% 75%, rgba(139, 30, 15, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 90% 85%, rgba(212, 175, 55, 0.07) 0%, transparent 45%),
+    linear-gradient(rgba(248, 243, 236, 0.85), rgba(248, 243, 236, 0.85)),
+    url('/static/assets/faura-mandala-pattern.svg');
+  background-position: center top, left bottom, right bottom, center center, center top;
+  background-size: 1400px 900px, 700px 700px, 700px 700px, cover, 340px 340px;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+  background-attachment: fixed;
+  font-family: var(--font-family);
+  color: var(--bistro-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 0;
+  line-height: 1.5;
+  transition: background-color 0.4s ease;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* ==========================================================================
+   HIGHLIGHTABLE AMBIENT BACKGROUND BEHIND MAIN CONTAINER
+   ========================================================================== */
+.main-backdrop-highlight {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: auto;
+  overflow: hidden;
+  transition: opacity 0.4s ease;
+}
+
+.ambient-aura-spotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 700px at var(--mouse-x, 50%) var(--mouse-y, 35%),
+    var(--aura-glow-color) 0%,
+    var(--aura-halo-color) 32%,
+    var(--aura-ambient-bg) 58%,
+    transparent 80%
+  );
+  filter: blur(45px);
+  pointer-events: none;
+  transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  mix-blend-mode: multiply;
+  opacity: 0.88;
+}
+
+.ambient-mandala-tile {
+  position: absolute;
+  inset: 0;
+  background-image: url('/static/assets/faura-mandala-pattern.svg');
+  background-size: 340px 340px;
+  background-repeat: repeat;
+  background-position: center center;
+  opacity: 0.085;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Floating Aura Highlight Switcher Toolbar */
+.aura-highlight-toolbar {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 95;
+  background: rgba(34, 24, 21, 0.90);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.38);
+  border-radius: var(--radius-pill);
+  padding: 0.42rem 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35), 0 0 20px rgba(212, 175, 55, 0.16);
+  transition: all 0.25s ease;
+}
+
+.aura-highlight-toolbar:hover {
+  border-color: var(--faura-gold);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.45), 0 0 26px rgba(212, 175, 55, 0.32);
+}
+
+.aura-toolbar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #FFFDF9;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding-right: 0.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  user-select: none;
+}
+
+.aura-toolbar-header .sparkle-icon {
+  font-size: 0.85rem;
+  animation: zeroGravitySubtle 3s ease-in-out infinite;
+}
+
+.aura-toolbar-title {
+  display: inline-block;
+  font-family: var(--font-family);
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: #D4AF37;
+  white-space: nowrap;
+}
+
+.aura-pill-group {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.aura-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-pill);
+  padding: 0.32rem 0.65rem;
+  color: #ECE0D1;
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: var(--font-family);
+  white-space: nowrap;
+}
+
+.aura-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  border-color: var(--faura-gold);
+  transform: translateY(-1px);
+}
+
+.aura-btn.active {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.32) 0%, rgba(227, 100, 20, 0.32) 100%);
+  border-color: #D4AF37;
+  color: #FFFDF9;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.45);
+}
+
+.aura-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.swatch-saffron { background: #E36414; box-shadow: 0 0 6px #E36414; }
+.swatch-gold { background: #D4AF37; box-shadow: 0 0 6px #D4AF37; }
+.swatch-terracotta { background: #8B1E0F; box-shadow: 0 0 6px #8B1E0F; }
+.swatch-emerald { background: #107846; box-shadow: 0 0 6px #107846; }
+.swatch-pulse {
+  background: conic-gradient(#E36414, #D4AF37, #8B1E0F, #107846, #E36414);
+  animation: rotatePulseSwatch 3s linear infinite;
+}
+
+/* Master Floating Indian Card Container */
+.bistro-card-container {
+  width: 100%;
+  max-width: var(--card-max-width);
+  background: var(--bistro-card-bg);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-bistro-card), var(--aura-card-backlight);
+  border: 1px solid var(--faura-gold-border);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+body[data-aura="pulse"] .bistro-card-container {
+  animation: auraBreathing 5s ease-in-out infinite alternate;
+}
+
+/* Regal Ornamental Top Trim (Saffron, Zari Gold & Terracotta) */
+.bistro-card-container::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, 
+    #8B1E0F 0%, 
+    #E36414 20%, 
+    #D4AF37 38%, 
+    #FFF3C4 50%, 
+    #D4AF37 62%, 
+    #E36414 80%, 
+    #8B1E0F 100%);
+  position: relative;
+  z-index: 10;
+}
+
+/* Subtle Indian Mandala Watermark on Showcase Stage */
+.showcase-stage {
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 253, 249, 0.95) 0%, rgba(250, 246, 239, 0.85) 100%);
+}
+
+.showcase-stage::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px;
+  height: 480px;
+  background: url('/static/assets/faura-mandala-pattern.svg') no-repeat center center;
+  background-size: contain;
+  opacity: 0.055;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Responsiveness */
+@media (max-width: 1100px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+
+  .bistro-header {
+    padding: 1.5rem 2rem 1rem;
+  }
+
+  .bistro-shield-strip {
+    padding: 0.6rem 2rem;
+  }
+
+  .showcase-stage {
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem 2.5rem;
+    gap: 1.5rem;
+  }
+
+  .col-dish-visual {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+
+  .dish-center-visual {
+    max-width: 320px;
+  }
+
+  .dish-heading {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bistro-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .bistro-nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .showcase-stage {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1rem;
+  }
+
+  .col-dish-details,
+  .col-dish-nutrition {
+    align-items: center;
+    text-align: center;
+  }
+
+  .dish-subdescription,
+  .nutrition-description-text {
+    max-width: 100%;
+  }
+
+  .slider-arrow-btn {
+    display: none;
+  }
+
+  .floating-cart-capsule {
+    bottom: 1rem;
+    width: calc(100% - 1.5rem);
+    padding: 0.5rem 1rem;
+  }
+
+  .aura-highlight-toolbar {
+    bottom: auto;
+    top: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 95vw;
+    padding: 0.35rem 0.65rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .aura-toolbar-title {
+    display: none;
+  }
+}
